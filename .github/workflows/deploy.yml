@@ -1,0 +1,39 @@
+name: Deploy Docusaurus to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout le code
+        uses: actions/checkout@v4
+
+      - name: Installer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Installer les dépendances
+        run: npm ci
+
+      - name: Générer le site
+        run: npm run build
+
+      - name: Préparer GitHub Pages
+        uses: actions/configure-pages@v3
+
+      - name: Uploader le site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./build
+
+      - name: Publier le site
+        uses: actions/deploy-pages@v4
