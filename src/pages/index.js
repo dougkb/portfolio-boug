@@ -1,9 +1,10 @@
 // src/pages/index.js
 import React from 'react';
 import Layout from '@theme/Layout';
+import { useHistory } from '@docusaurus/router';
 import { motion } from 'framer-motion';
 import styles from './index.module.css';
-import { useHistory } from '@docusaurus/router';
+import ProjectsSection from '../components/HomepageSections/ProjectsSection';
 
 export default function Home() {
   const history = useHistory();
@@ -38,35 +39,7 @@ export default function Home() {
       </motion.header>
 
       <main>
-        <motion.section
-          id="projets"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <h2>💼 Projets</h2>
-          <ul>
-            <li><strong>Point & Pass RH</strong> — Gestion des absences</li>
-            <li><strong>Sum Time</strong> — Suivi du temps de travail</li>
-            <li><strong>CI/CD Docusaurus</strong> — Déploiement automatisé</li>
-            <li><strong>Terraform S3 & CloudFront</strong> — Hébergement statique sécurisé</li>
-          </ul>
-        </motion.section>
-
-        <motion.section
-          id="competences"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <h2>🧠 Compétences</h2>
-          <ul>
-            <li><strong>DevOps :</strong> Docker, GitHub Actions, Kubernetes, Terraform</li>
-            <li><strong>RH :</strong> Paie, SIRH, Digitalisation RH</li>
-          </ul>
-        </motion.section>
+        <ProjectsSection />
       </main>
     </Layout>
   );
