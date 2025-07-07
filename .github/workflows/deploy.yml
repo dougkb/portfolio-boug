@@ -13,27 +13,27 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout le code
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Installer Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
 
-      - name: Installer les dépendances
+      - name: Install dependencies
         run: npm ci
 
-      - name: Générer le site
+      - name: Build website
         run: npm run build
 
-      - name: Préparer GitHub Pages
+      - name: Setup GitHub Pages
         uses: actions/configure-pages@v3
 
-      - name: Uploader le site
+      - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./build
 
-      - name: Publier le site
+      - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
