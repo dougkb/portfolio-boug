@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkportfolio_boug=self.webpackChunkportfolio_boug||[]).push([[8400],{61:o=>{o.exports=JSON.parse('{"metadata":{"permalink":"/portfolio-boug/en/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
